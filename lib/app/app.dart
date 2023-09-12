@@ -1,4 +1,4 @@
-import 'package:agro_koom/view/home_view.dart';
+import 'package:agro_koom/view/start_view.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: HomeView());
+        home: const StartView());
   }
 }

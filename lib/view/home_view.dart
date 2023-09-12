@@ -2,77 +2,55 @@ import 'package:agro_koom/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/image.png'),
-                fit: BoxFit.cover,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100.0),
+                color: Colors.green,
+              ),
+              padding: const EdgeInsets.all(0),
+              child: Image.asset(
+                'assets/images/rectangle.png',
               ),
             ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(150, 130, 12, 10),
-                child: Image.asset('assets/images/icon.png'),
-              ),
-            ],
-          ),
-          const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'AGROKOOM',
-                  style:
-                      TextStyle(fontSize: 45, color: Appcolors.white, shadows: [
-                    Shadow(
-                      offset: Offset(-1.5, -1.5),
-                      color: Appcolors.green,
-                    )
-                  ]),
-                ),
-                Text(
-                  'Фермер менен ишкерди ортомчусуз \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tбайланыштыруу',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Appcolors.white,
-                  ),
-                ),
-              ],
+            SizedBox(
+              width: 3,
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(160, 50, 55, 80),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Войти',
-                    style: TextStyle(
-                      color: Appcolors.white,
-                      fontSize: 25,
-                    ),
-                  ),
+            Container(
+              height: 30,
+              width: 130,
+              decoration: BoxDecoration(
+                border: Border.all(),
+                borderRadius: BorderRadius.horizontal(
+                    left: Radius.circular(5), right: Radius.circular(30)),
+                color: Colors.green,
+              ),
+              child: const Text(
+                'AGROKOOM',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Appcolors.white,
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.menu))],
       ),
     );
   }
