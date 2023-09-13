@@ -28,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
                 'assets/images/rectangle.png',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 3,
             ),
             Container(
@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
               width: 130,
               decoration: BoxDecoration(
                 border: Border.all(),
-                borderRadius: BorderRadius.horizontal(
+                borderRadius: const BorderRadius.horizontal(
                     left: Radius.circular(5), right: Radius.circular(30)),
                 color: Colors.green,
               ),

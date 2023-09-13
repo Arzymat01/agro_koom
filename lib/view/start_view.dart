@@ -1,6 +1,8 @@
 import 'package:agro_koom/constants/color.dart';
-import 'package:agro_koom/view/home_view.dart';
+
 import 'package:flutter/material.dart';
+
+import '../main/main_view.dart';
 
 class StartView extends StatefulWidget {
   const StartView({super.key});
@@ -65,7 +67,7 @@ class _StartViewState extends State<StartView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomeView(),
+                        builder: (context) => const MianView(),
                       ),
                     );
                   },
