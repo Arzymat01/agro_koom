@@ -10,6 +10,10 @@ class MesseageView extends StatefulWidget {
 class _MesseageViewState extends State<MesseageView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('MessagePage'),
+      ),
+    );
   }
 }

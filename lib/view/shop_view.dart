@@ -10,6 +10,10 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ShopPage'),
+      ),
+    );
   }
 }

@@ -3,7 +3,7 @@ import 'package:agro_koom/view/messeage_view.dart';
 import 'package:agro_koom/view/profile_view.dart';
 import 'package:agro_koom/view/searh_view.dart';
 import 'package:agro_koom/view/shop_view.dart';
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -26,36 +26,40 @@ class _MianViewState extends State<MianView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: FlashyTabBar(
-          animationCurve: Curves.linear,
-          showElevation: true,
-          onItemSelected: (index) => setState(() {
-            _selectedIndex = index;
-          }),
-          items: [
-            FlashyTabBarItem(
-              title: Text('sddf'),
-              icon: SvgPicture.asset('assets/icons/search.svg'),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.amber,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        unselectedItemColor: Colors.black,
+        onTap: (index) => setState(() {
+          _selectedIndex = index;
+        }),
+        items: [
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
             ),
-            FlashyTabBarItem(
-              icon: SvgPicture.asset('assets/icons/search.svg'),
-              title: const Text('Contact'),
-            ),
-            FlashyTabBarItem(
-              icon: SvgPicture.asset('assets/icons/shop.svg'),
-              title: const Text('Events'),
-            ),
-            FlashyTabBarItem(
-              icon: SvgPicture.asset('assets/icons/message.svg'),
-              title: const Text('Quick Scan'),
-            ),
-            FlashyTabBarItem(
-              icon: SvgPicture.asset('assets/icons/user.svg'),
-              title: const Text('Quick Scan'),
-            ),
-          ],
-        ),
-//you have to just do changes here...
-        body: pageList.elementAt(_selectedIndex));
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset('assets/icons/search.svg'),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset('assets/icons/shop.svg'),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset('assets/icons/message.svg'),
+          ),
+          BottomNavigationBarItem(
+            label: '',
+            icon: SvgPicture.asset('assets/icons/user.svg'),
+          ),
+        ],
+      ),
+      body: pageList.elementAt(_selectedIndex),
+    );
   }
 }
