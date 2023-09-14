@@ -51,7 +51,7 @@ class _MianViewState extends State<MianView> {
           ),
           BottomNavigationBarItem(
             label: '',
-            icon: SvgPicture.asset('assets/icons/user.svg'),
+            icon: SvgPicture.asset('assets/icons/message.svg'),
           ),
           BottomNavigationBarItem(
             label: '',

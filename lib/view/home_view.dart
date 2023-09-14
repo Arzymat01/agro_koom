@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 0),
       vsync: this,
     );
     _animation = Tween<double>(begin: 0, end: 200).animate(_controller);
@@ -255,18 +255,18 @@ class MyListTile extends StatelessWidget {
               Container(
                 width: 30,
                 height: 30,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                 ),
                 child: SvgPicture.asset(icon),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
                 title!,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ],
           ),
