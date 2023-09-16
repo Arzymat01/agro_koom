@@ -25,9 +25,15 @@ class Specialist extends StatelessWidget {
             width: 55,
           ),
         ),
+        const SizedBox(
+          height: 12,
+        ),
         Text(
           text,
-          style: TextStyle(fontSize: 10),
+          style: const TextStyle(
+            fontSize: 10,
+            color: Appcolors.textColor,
+          ),
         )
       ],
     );
