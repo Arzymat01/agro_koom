@@ -1,6 +1,11 @@
-import 'package:agro_koom/constants/color.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'package:agro_koom/constants/color.dart';
+import 'package:agro_koom/view/profile_view.dart';
+
+import '../components/cardSpecial.dart';
+import '../components/menu.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -35,6 +40,8 @@ class _HomeViewState extends State<HomeView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Appcolors.appbarColor,
+        toolbarHeight: 90,
         automaticallyImplyLeading: false,
         title: Row(
           children: [
@@ -43,7 +50,7 @@ class _HomeViewState extends State<HomeView>
               width: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100.0),
-                color: Colors.green,
+                color: Appcolors.green,
               ),
               padding: const EdgeInsets.all(0),
               child: Image.asset(
@@ -60,7 +67,7 @@ class _HomeViewState extends State<HomeView>
                 border: Border.all(),
                 borderRadius: const BorderRadius.horizontal(
                     left: Radius.circular(5), right: Radius.circular(30)),
-                color: Colors.green,
+                color: Appcolors.green,
               ),
               child: const Text(
                 'AGROKOOM',
@@ -74,7 +81,7 @@ class _HomeViewState extends State<HomeView>
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {
               setState(() {
                 _isOpen = !_isOpen;
@@ -124,10 +131,12 @@ class _HomeViewState extends State<HomeView>
                           icon: 'assets/iconsmenu/earth.svg',
                           title: "Главная",
                           onTap: () {
-                            setState(() {
-                              _isOpen = !_isOpen;
-                              _controller.reverse();
-                            });
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileView(),
+                              ),
+                            );
                           },
                         ),
                         MyListTile(
@@ -211,18 +220,6 @@ class _HomeViewState extends State<HomeView>
                           },
                         ),
                         Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                            child: Text("Close"),
-                            onPressed: () {
-                              setState(() {
-                                _isOpen = !_isOpen;
-                                _controller.reverse();
-                              });
-                            },
-                          ),
-                        )
                       ],
                     ),
                   ),
@@ -230,47 +227,57 @@ class _HomeViewState extends State<HomeView>
               },
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class MyListTile extends StatelessWidget {
-  final String? title;
-  final String icon;
-  final VoidCallback? onTap;
-
-  MyListTile({this.title, required this.icon, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 30,
-                height: 30,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
+          const Padding(
+            padding: EdgeInsets.fromLTRB(25, 5, 30, 25),
+            child: Column(
+              children: [
+                Text(
+                  'Специалисты',
+                  style: TextStyle(fontSize: 20),
                 ),
-                child: SvgPicture.asset(icon),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                title!,
-                style: const TextStyle(fontSize: 16),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(25, 55, 25, 30),
+            child: Row(
+              children: [
+                Specialist(
+                  imag: 'assets/images/agronom.png',
+                  text: 'Агроном',
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Specialist(
+                  imag: 'assets/images/doc.png',
+                  text: 'Ветеринар',
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Specialist(
+                  imag: 'assets/images/korgo.png',
+                  text: 'Защита растение',
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Specialist(
+                  imag: 'assets/images/sel.png',
+                  text: 'Селекционер',
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Specialist(
+                  imag: 'assets/images/topyr.png',
+                  text: 'Почвовед',
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
