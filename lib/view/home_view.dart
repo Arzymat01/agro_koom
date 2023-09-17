@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'package:agro_koom/constants/color.dart';
 import 'package:agro_koom/view/profile_view.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../components/cardSpecial.dart';
 import '../components/companenteContainer.dart';
+import '../components/container.dart';
 import '../components/menu.dart';
 
 class HomeView extends StatefulWidget {
@@ -41,6 +41,7 @@ class _HomeViewState extends State<HomeView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Appcolors.textfieldColor,
       appBar: AppBar(
         backgroundColor: Appcolors.appbarColor,
         toolbarHeight: 90,
@@ -65,11 +66,12 @@ class _HomeViewState extends State<HomeView>
             Container(
               height: 30,
               width: 130,
-              decoration: BoxDecoration(
-                border: Border.all(),
-                borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(0),
-                  right: Radius.circular(10),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(0),
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(30),
                 ),
                 color: Appcolors.green,
               ),
@@ -337,7 +339,7 @@ class _HomeViewState extends State<HomeView>
           Padding(
             padding: EdgeInsets.fromLTRB(25, 150, 25, 30),
             child: ListView(
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
                   'Онлайн обучения',
                   style: TextStyle(color: Appcolors.textColor, fontSize: 15),
@@ -374,38 +376,27 @@ class _HomeViewState extends State<HomeView>
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Container(
-                          height: 150.0,
-                          width: 190,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('assets/images/image1.png')),
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            border: Border(
-                              left: BorderSide(
-                                color: Colors.green,
-                                width: 3,
-                              ),
-                            ),
-                          ),
-                          child: Text('dfgfd')),
+                      Container2(
+                        imag2: 'assets/images/klubnika.png',
+                      ),
+                      Container2(
+                        imag2: 'assets/images/chop.png',
+                      ),
                     ],
                   ),
                 ),
-                // Text('Клубника,Клери'),
-                // Text(
-                //   'Универсальность «Клери», \nона подходит для заморозки, \nконсервирования и употребления \nв свежем виде....',
-                //   style: TextStyle(fontSize: 12),
-                // ),
-                // Text(
-                //   '40 сом',
-                //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-                // ),
-                // Image.asset('assets/images/button.png')
+                Text('Клубника,Клери'),
+                Text(
+                  'Универсальность «Клери», \nона подходит для заморозки, \nконсервирования и употребления \nв свежем виде....',
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(
+                  '40 сом',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
